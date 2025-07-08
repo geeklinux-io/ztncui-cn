@@ -1,0 +1,29 @@
+//-
+/*
+  ztncui - ZeroTier network controller UI
+  Copyright (C) 2017-2021  Key Networks (https://key-networks.com)
+  Licensed under GPLv3 - see LICENSE for details.
+  
+  中文汉化 by wanghaoyu.com.cn
+*/
+
+extends controller_layout
+
+block content
+  h1!= title
+
+  h2
+    a(href='https://zerotier.com' target='_blank') ZeroTier 
+    | 网络控制器用户界面 by 
+    a(href='https://key-networks.com' target='_blank') Key Networks
+    | （中文汉化 by 
+    a(href='https://wanghaoyu.com.cn' target='_blank') wanghaoyu.com.cn
+    | ）
+
+  if error
+     b #{error}
+  else
+    h4 此网络控制器的 ZeroTier 地址为 <b>#{zt_status.address}</b>
+    h4 ZeroTier 版本 <b>#{zt_status.version}</b>
+    h4
+      a(href='/controller/networks') 列出此网络控制器上的所有网络

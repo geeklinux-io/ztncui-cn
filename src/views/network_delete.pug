@@ -1,0 +1,22 @@
+//-
+
+
+extends network_layout
+
+block net_content
+  if network.deleted
+    .alert.alert-success
+      strong #{network.name} (#{network.nwid}) 已被删除
+
+  else
+    .alert.alert-danger
+      strong 警告！删除网络操作无法撤销
+    form(method='POST' action='')
+      button.btn.btn-danger(type='submit', name='delete') 删除 #{network.name} (#{network.nwid})
+      = ' '
+      a.btn.btn-default(href='/controller/networks', name='cancel', role='button') 取消
+
+  if errors
+    ul
+      for err in errors
+        li!= err.msg

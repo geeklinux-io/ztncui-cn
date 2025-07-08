@@ -1,0 +1,18 @@
+//-
+
+
+extends login_layout
+
+block login_content
+  h1!= title
+
+  h2
+    a(href='https://zerotier.com' target='_blank') ZeroTier 
+    | 网络控制器用户界面
+    br
+    | （中文汉化 by 
+    a(href='https://wanghaoyu.com.cn' target='_blank') wanghaoyu.com.cn
+    | ）
+  
+  .text-center(style='margin-top: 30px;')
+    a.btn.btn-primary.btn-lg(href='/login' role='button') 登录管理界面

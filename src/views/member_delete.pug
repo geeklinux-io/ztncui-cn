@@ -1,0 +1,28 @@
+//-
+
+
+extends network_layout
+
+block net_content
+  if member.deleted
+    .alert.alert-success
+      strong #{member.name} (#{member.id}) 已被删除
+    a.btn.btn-default(href=('/controller/network/' + network.nwid + '#members') name='networks' role='button') 成员
+
+  else
+    .alert.alert-info
+      strong
+        ul
+          li 要撤销成员删除，只需让成员重新加入网络即可。
+          li 删除成员后，您可能会看到他们再次出现在成员列表中。这是ZeroTier的问题。只需让用户离开网络即可。
+
+    form(method='POST' action='')
+      button.btn.btn-primary(type='submit', name='delete') 删除 #{member.name} (#{member.id})
+      = ' '
+      a.btn.btn-default(href='/controller/network/' + network.nwid + '#members',
+                                          name='cancel', role='button') 取消
+
+  if errors
+    ul
+      for err in errors
+        li!= err.msg

@@ -1,0 +1,18 @@
+//-
+
+
+extends network_layout
+
+block net_content
+  - if (member !== undefined)
+    h4 成员
+      a(href='../' + member.address)  #{member.address}
+  h4 编辑
+    b  #{title}
+    |  功能尚未实现。
+
+  h4
+    | 注意：您可能可以在
+    strong
+      a(href='/controller/network/' + network.nwid + '#members') 成员
+    | 页面上编辑某些属性。
